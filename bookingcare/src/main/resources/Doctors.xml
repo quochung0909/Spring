@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.asm3.bookingcare.entity.Doctors">
+        <table name="doctors" schema="bookingcare" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="name">
+                <column name="name" length="100"/>
+            </basic>
+            <basic name="specialtyId">
+                <column name="specialty_id" precision="-1"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" precision="-1"/>
+            </basic>
+            <one-to-many name="appointmentsById" mapped-by="doctorsByDoctorId"
+                         target-entity="com.asm3.bookingcare.entity.Appointments"/>
+        </attributes>
+    </entity>
+</entity-mappings>
